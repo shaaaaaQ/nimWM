@@ -1,14 +1,14 @@
 import x11/xlib, x11/x
-converter toCint(x: TKeyCode): cint = x.cint
+converter toCint(x: KeyCode): cint = x.cint
 converter int32toCUint(x: int32): cuint = x.cuint
-converter toTBool(x: bool): TBool = x.TBool
-converter toBool(x: TBool): bool = x.bool
+converter toXBool(x: bool): XBool = x.XBool
+converter toBool(x: XBool): bool = x.bool
 
 type XWindowInfo = object
   display*: PDisplay
-  attr*: TXWindowAttributes
-  start*: TXButtonEvent
-  ev*: TXEvent
+  attr*: XWindowAttributes
+  start*: XButtonEvent
+  ev*: XEvent
 
 proc initXWIndowInfo(winInfo: var XWindowInfo): XWIndowInfo =
   winInfo.display = XOpenDisplay(nil)
